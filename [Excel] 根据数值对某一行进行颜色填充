@@ -1,0 +1,25 @@
+该代码实现的主要功能是，当我从单元格下拉框里选择了“KOK”
+程序自动将该单元格所在行的第１到９列的背景色填充为浅绿色“３５”
+否则就将背景色五填充“０”
+
+————————————————————————————————————————————————————————————————
+
+Private Sub Worksheet_Change(ByVal Target As Range)
+
+Dim x As Integer
+
+For x = 1 To 100
+
+If Sheet1.Cells(12 + x, 4) = "KOK" Then
+    Sheet1.Rows.Range(Cells(12 + x, 1), Cells(12 + x, 9)).Interior.ColorIndex = 35
+    Rem Sheet1.Rows(12 + x).Interior.ColorIndex = 35 整行都填充底色
+Else
+    Sheet1.Rows.Range(Cells(12 + x, 1), Cells(12 + x, 9)).Interior.ColorIndex = 0
+    Rem Sheet1.Rows(12 + x).Interior.ColorIndex = 0  整行都填充底色
+End If
+
+Next
+
+End Sub
+
+————————————————————————————————————————————————————————————————
